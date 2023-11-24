@@ -5,7 +5,7 @@ public interface IPizza {
 
     public double getCost();
 
-    public int addTopping(ITopping topping);
+    public void addTopping(ITopping topping);
 
-    public int getTimeToMake();
+    public double getTimeToMake();
 }

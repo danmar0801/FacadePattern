@@ -34,7 +34,7 @@ public class PizzeriaFacade {
         for (int i = 0; i < amountOfPizzas; i++) {
             IPizza pizza = pizzaFactory.generateRandomPizza();
             order.addPizza(pizza);
-            System.out.println("Random Pizza ordered: " + pizza.getClass().getSimpleName()
+            System.out.println("Random Pizza ordered: " + pizza.getClass().getSimpleName() + " " + (i+1)
                     + ", Size: " + pizza.getSize()
                     + ", Toppings: " + ((Pizza) pizza).getToppingsDescription()
                     + ", Cost: $" + pizza.getCost()

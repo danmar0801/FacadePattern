@@ -3,10 +3,7 @@ package pizzeria;
 import pizzeria.workers.DeliveryGuy;
 import pizzeria.workers.OrderTaker;
 import pizzeria.workers.Oven;
-import pizzeria.interfaces.IOrder;
 import pizzeria.interfaces.IPizza;
-import pizzeria.pizzas.CheesePizza;
-import pizzeria.pizzas.PepperoniPizza;
 
 /**
  * Facade for the Pizzeria operations.

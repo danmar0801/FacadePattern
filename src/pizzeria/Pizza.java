@@ -26,7 +26,7 @@ public class Pizza implements IPizza {
         this.toppings = new ArrayList<>(); // Initialize the toppings list
     }
 
-    @Override
+
     public int getSize() {
         return size;
     }

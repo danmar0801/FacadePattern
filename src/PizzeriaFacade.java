@@ -30,6 +30,7 @@ public class PizzeriaFacade {
      */
     public void orderPizza(int amountOfPizzas, String address) {
         Order order = new Order();
+        System.out.println("Your Order:");
         for (int i = 0; i < amountOfPizzas; i++) {
             IPizza pizza = pizzaFactory.generateRandomPizza();
             order.addPizza(pizza);
@@ -40,15 +41,21 @@ public class PizzeriaFacade {
                     + ", Time to make: " + pizza.getTimeToMake() + " mins");
         }
 
+        System.out.println();
+
         // Process the order
         orderTaker.startJob(order);
-        oven.startJob(order);
-        deliveryGuy.startJob(order);
+        orderTaker.onJobEnd(order);        
 
-        // Completing the order
-        orderTaker.onJobEnd(order);
+        // Cook Pizzas
+        oven.startJob(order);
         oven.onJobEnd(order);
+
+        // Deliver the order
+        deliveryGuy.startJob(order);        
         deliveryGuy.onJobEnd(order);
+
+        System.out.println();
 
         // Printing order summary
         System.out.println("Total Order Cost: $" + order.getCost());

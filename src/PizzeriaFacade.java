@@ -4,6 +4,7 @@ import pizzeria.workers.DeliveryGuy;
 import pizzeria.workers.OrderTaker;
 import pizzeria.workers.Oven;
 import pizzeria.interfaces.IOrder;
+import pizzeria.interfaces.IPizza;
 import pizzeria.pizzas.CheesePizza;
 import pizzeria.pizzas.PepperoniPizza;
 
@@ -15,11 +16,13 @@ public class PizzeriaFacade {
     private OrderTaker orderTaker;
     private Oven oven;
     private DeliveryGuy deliveryGuy;
+    private PizzaFactory pizzaFactory;
 
     public PizzeriaFacade() {
         orderTaker = new OrderTaker();
         oven = new Oven();
         deliveryGuy = new DeliveryGuy();
+        pizzaFactory = new PizzaFactory();
     }
 
     /**
@@ -29,26 +32,31 @@ public class PizzeriaFacade {
      * @param address the delivery address.
      */
     public void orderPizza(int amountOfPizzas, String address) {
-        // Implementation of pizza order
-        // For simplicity, alternate between Cheese and Pepperoni Pizzas
         Order order = new Order();
         for (int i = 0; i < amountOfPizzas; i++) {
-            if (i % 2 == 0) {
-                order.addPizza(new CheesePizza(2));
-            } else {
-                order.addPizza(new PepperoniPizza(2));
-            }
+            IPizza pizza = pizzaFactory.generateRandomPizza();
+            order.addPizza(pizza);
+            System.out.println("Random Pizza ordered: " + pizza.getClass().getSimpleName()
+                    + ", Size: " + pizza.getSize()
+                    + ", Toppings: " + ((Pizza) pizza).getToppingsDescription()
+                    + ", Cost: $" + pizza.getCost()
+                    + ", Time to make: " + pizza.getTimeToMake() + " mins");
         }
 
-        // Simulate order processing
+        // Process the order
         orderTaker.startJob(order);
         oven.startJob(order);
         deliveryGuy.startJob(order);
 
-        // Simulate order completion
+        // Completing the order
         orderTaker.onJobEnd(order);
         oven.onJobEnd(order);
         deliveryGuy.onJobEnd(order);
+
+        // Printing order summary
+        System.out.println("Total Order Cost: $" + order.getCost());
+        System.out.println("Total Time to Make Order: " + order.getTimeToMake() + " mins");
     }
 }
+
 

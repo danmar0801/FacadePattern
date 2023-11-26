@@ -8,4 +8,6 @@ public interface IPizza {
     void addTopping(ITopping topping);
 
     double getTimeToMake();
+
+    String getToppingsDescription();
 }

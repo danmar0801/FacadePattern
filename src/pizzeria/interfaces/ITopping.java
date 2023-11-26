@@ -1,7 +1,7 @@
 package pizzeria.interfaces;
 
 public interface ITopping {
-    public int getAmountOnPizza();
+    int getAmountOnPizza();
 
-    public double getCost();
+    double getCost();
 }

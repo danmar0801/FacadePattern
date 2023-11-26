@@ -5,15 +5,12 @@ import pizzeria.interfaces.IWorker;
 
 public class Oven implements IWorker {
 
-    @Override
+
     public void startJob(IOrder order) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'startJob'");
+        System.out.println("Pizza is in the oven...");
     }
 
-    @Override
     public void onJobEnd(IOrder order) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onJobEnd'");
+        System.out.println("Pizza is nice and toasty, just pulled out of the oven.");
     }
 }

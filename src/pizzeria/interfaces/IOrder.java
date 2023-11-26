@@ -3,11 +3,11 @@ package pizzeria.interfaces;
 import java.util.List;
 
 public interface IOrder {
-    public void addPizza(IPizza newPizza);
+    void addPizza(IPizza newPizza);
 
-    public List<IPizza> getOrderContents();
+    List<IPizza> getOrderContents();
 
-    public double getCost();
+    double getCost();
 
-    public double getTimeToMake();
+    double getTimeToMake();
 }

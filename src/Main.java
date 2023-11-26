@@ -1,6 +1,8 @@
+import pizzeria.PizzeriaFacade;
+
 public class Main {
     public static void main(String[] args) {
-        Pizzeria pizzeria = new Pizzeria();
+        PizzeriaFacade pizzeria = new PizzeriaFacade();
         pizzeria.orderPizza(5, "My house NOW");
     }
 }

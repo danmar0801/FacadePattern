@@ -1,11 +1,11 @@
 package pizzeria.interfaces;
 
 public interface IPizza {
-    public int getSize();
+    int getSize();
 
-    public double getCost();
+    double getCost();
 
-    public void addTopping(ITopping topping);
+    void addTopping(ITopping topping);
 
-    public double getTimeToMake();
+    double getTimeToMake();
 }

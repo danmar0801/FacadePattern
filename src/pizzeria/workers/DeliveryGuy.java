@@ -4,16 +4,11 @@ import pizzeria.interfaces.IOrder;
 import pizzeria.interfaces.IWorker;
 
 public class DeliveryGuy implements IWorker {
-
-    @Override
     public void startJob(IOrder order) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'startJob'");
+        System.out.println("Delivering the pizza to the location...");
     }
 
-    @Override
     public void onJobEnd(IOrder order) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'onJobEnd'");
+        System.out.println("Pizza Delivered, might have run over a couple of children by mistake.");
     }
 }

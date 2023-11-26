@@ -1,5 +1,6 @@
 package pizzeria;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import pizzeria.interfaces.IPizza;
@@ -9,18 +10,19 @@ public class Pizza implements IPizza {
 
     private int basePrice = 10;
     private int size;
-    private List<ITopping> toppings;
+    private List<ITopping> toppings; // List to hold toppings
 
     public Pizza(int size) {
         this.size = size;
+        this.toppings = new ArrayList<>(); // Initialize the toppings list
     }
 
-    @Override
+
     public int getSize() {
         return size;
     }
 
-    @Override
+
     public double getCost() {
         double pizzaPrice = basePrice * size;
         double toppingPrices = 0;
@@ -30,14 +32,13 @@ public class Pizza implements IPizza {
         return pizzaPrice + toppingPrices;
     }
 
-    @Override
+
     public void addTopping(ITopping topping) {
-        toppings.add(topping);
+        toppings.add(topping); // Now this should work without causing a NullPointerException
     }
 
-    @Override
+
     public double getTimeToMake() {
-        // TODO: Change this to something unique
         double pizzaPrice = basePrice * size;
         double toppingPrices = 0;
         for (ITopping t : toppings) {

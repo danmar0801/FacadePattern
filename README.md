@@ -3,6 +3,9 @@
 ## Introduction
 This project simulates a pizzeria ordering system, demonstrating the use of design patterns, particularly the Facade pattern, in a Java application. It allows for the creation of pizza orders with various toppings and sizes, processed through a simplified interface.
 
+Link to slides presentation:
+https://docs.google.com/presentation/d/1haHK6D7QhjAM8UB6QbfMsMljdPiGFyYT5I2a9RWLAv8/edit?usp=sharing
+
 ## Setup and Running the Project
 
 ### Prerequisites

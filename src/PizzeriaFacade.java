@@ -1,8 +1,9 @@
-package pizzeria;
-
 import pizzeria.workers.DeliveryGuy;
 import pizzeria.workers.OrderTaker;
 import pizzeria.workers.Oven;
+import pizzeria.Order;
+import pizzeria.Pizza;
+import pizzeria.PizzaFactory;
 import pizzeria.interfaces.IPizza;
 
 /**
@@ -26,7 +27,7 @@ public class PizzeriaFacade {
      * Facilitates the ordering of pizzas.
      *
      * @param amountOfPizzas the number of pizzas to order.
-     * @param address the delivery address.
+     * @param address        the delivery address.
      */
     public void orderPizza(int amountOfPizzas, String address) {
         Order order = new Order();
@@ -34,7 +35,7 @@ public class PizzeriaFacade {
         for (int i = 0; i < amountOfPizzas; i++) {
             IPizza pizza = pizzaFactory.generateRandomPizza();
             order.addPizza(pizza);
-            System.out.println("Random Pizza ordered: " + pizza.getClass().getSimpleName() + " " + (i+1)
+            System.out.println("Random Pizza ordered: " + pizza.getClass().getSimpleName() + " " + (i + 1)
                     + ", Size: " + pizza.getSize()
                     + ", Toppings: " + ((Pizza) pizza).getToppingsDescription()
                     + ", Cost: $" + pizza.getCost()
@@ -45,14 +46,14 @@ public class PizzeriaFacade {
 
         // Process the order
         orderTaker.startJob(order);
-        orderTaker.onJobEnd(order);        
+        orderTaker.onJobEnd(order);
 
         // Cook Pizzas
         oven.startJob(order);
         oven.onJobEnd(order);
 
         // Deliver the order
-        deliveryGuy.startJob(order);        
+        deliveryGuy.startJob(order);
         deliveryGuy.onJobEnd(order);
 
         System.out.println();
@@ -62,5 +63,3 @@ public class PizzeriaFacade {
         System.out.println("Total Time to Make Order: " + order.getTimeToMake() + " mins");
     }
 }
-
-
